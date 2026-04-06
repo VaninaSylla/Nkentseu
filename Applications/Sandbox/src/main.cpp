@@ -16,6 +16,12 @@
 #include "NKLogger/NkLog.h"
 #include "NKMemory/NkMemory.h"
 
+#include <algorithm>
+#include <cmath>
+#include <memory>
+#include <iostream>
+#include <cstdlib>
+
 #ifndef NK_SANDBOX_RENDERER_API
 #define NK_SANDBOX_RENDERER_API nkentseu::NkRendererApi::NK_SOFTWARE
 #endif
@@ -26,6 +32,8 @@ using namespace nkentseu::math;
 // ============================================================================
 int nkmain(const nkentseu::NkEntryState& /*state*/)
 {
+    using namespace nkentseu;
+
     // -------------------------------------------------------------------------
     // 1. Initialisation
     // -------------------------------------------------------------------------
@@ -69,7 +77,11 @@ int nkmain(const nkentseu::NkEntryState& /*state*/)
         }
     }
 
-    
+    // -------------------------------------------------------------------------
+    // 4. GameLayer - Pattern A (Dispatcher)
+    // -------------------------------------------------------------------------
+    GameLayer layer;
+
     // -------------------------------------------------------------------------
     // 4. Boucle principale
     // -------------------------------------------------------------------------
